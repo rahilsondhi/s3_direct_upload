@@ -71,6 +71,7 @@ module S3DirectUpload
             ["starts-with", "$x-requested-with", ""],
             ["content-length-range", 0, @options[:max_file_size]],
             ["starts-with","$Content-Type",""],
+            ["starts-with","$Content-Disposition",""],
             {bucket: @options[:bucket]},
             {acl: @options[:acl]},
             {success_action_status: "201"}
